@@ -20,15 +20,15 @@ from gmqtt.mqtt.handler import _empty_callback
 from gmqtt.mqtt.package import PackageFactory
 from gmqtt.mqtt.protocol import MQTTProtocol
 from gmqtt.mqtt.utils import pack_variable_byte_integer
-from thriftpy.protocol import TCompactProtocol
-from thriftpy.transport import TMemoryBuffer
-import thriftpy
+from thriftpy2.protocol import TCompactProtocol
+from thriftpy2.transport import TMemoryBuffer
+import thriftpy2
 
 ABSOLUTE_PATH = lambda x: os.path.abspath(os.path.join(os.path.abspath(os.path.dirname(__file__)), x))
 
 
 file_path_rel = relpath(ABSOLUTE_PATH('connect.thrift'), getcwd())
-thrift = thriftpy.load(file_path_rel, module_name="connect_thrift")
+thrift = thriftpy2.load(file_path_rel, module_name="connect_thrift")
 
 
 class FBNSAuth(object):
